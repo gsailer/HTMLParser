@@ -1,8 +1,8 @@
-HTML Parser
+##HTML Parser
 
 HTML Parser is a simple tool to parse any website with any Regex you want to.
 
-Usage
+###Usage
  
 For being able to use this tool you need to build a proper regex in the python regex form.
 
