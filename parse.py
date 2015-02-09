@@ -8,14 +8,22 @@ import sys
 import re
 
 def dbg(var):
-	print "DEBUG: " + var 
+	return "DEBUG: " + var 
 
 def log(file, data):
 	with open(file, "a+") as f:
 		f.write(data + "\n")
 
-# function to parse any Data with a regex on any page
-def fromUrl (url, regex, filepath):
+def csRegex(regex, filename):
+	pattern = re.compile(regex)
+	data = re.findall(pattern, filename)
+	return data
+
+# function to parse any Data with a regex
+def help ():
+	return "Usage: parse.fromUrl(url, regex), parse.fromFile(filename, regex)"
+
+def fromUrl(url, regex):
 	url = "http://" + url
 	dbg(url)
 	dbg(regex)
@@ -28,11 +36,17 @@ def fromUrl (url, regex, filepath):
 		print "ERROR: Connection Failure"
 		sys.exit(1)
 	
-	pattern = re.compile(regex)
-	data = re.findall(pattern, htmltext)
+	data = csRegex(regex, htmltext)
 	
 	for x in data:
-		log(filepath, x)	
+		return x	
 
-# Example for usage:
-fromUrl('www.amazon.de/gp/product/B004S7Q8CA', '<b class="priceLarge">(.+?)</b>', "/Users/neo/foobar.txt")
+def fromFile(filename, regex):
+	dbg(filename)
+	dbg(regex)
+	try:
+		with open(filename) as f:
+			return csRegex(regex, f)
+	except:
+		print "ERROR: Some shit happend"
+		sys.exit(1)
