@@ -15,7 +15,7 @@ def log(file, data):
 		f.write(data + "\n")
 
 # function to parse any Data with a regex on any page
-def getData (url, regex, filepath):
+def fromUrl (url, regex, filepath):
 	url = "http://" + url
 	dbg(url)
 	dbg(regex)
@@ -35,4 +35,4 @@ def getData (url, regex, filepath):
 		log(filepath, x)	
 
 # Example for usage:
-getData('www.amazon.de/gp/product/B004S7Q8CA', '<b class="priceLarge">(.+?)</b>', "/Users/neo/foobar.txt")
+fromUrl('www.amazon.de/gp/product/B004S7Q8CA', '<b class="priceLarge">(.+?)</b>', "/Users/neo/foobar.txt")
