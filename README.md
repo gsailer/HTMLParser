@@ -1,15 +1,21 @@
 ##HTML Parser
 
-HTML Parser is a simple tool to parse any website with any Regex you want to.
+HTML Parser is a simple module to parse any website or file with any Regex you want to.
 
 ###Usage
- 
-For being able to use this tool you need to build a proper regex in the python regex form.
+1)<br>
+import the module:<br>
+<code python>
+import parse.py
+</code><br>
 
-Example: '
-     <b class="priceLarge">(.+?)</b>'
+2)<br>
+Build proper regex:<br>
+Example: <br>
+<img src="regex-shot-github.jpg"><br>
 
-Then you can add a line of code like this to the end of the script
-
-Example: 
-    getData('www.amazon.de/gp/product/B004S7Q8CA', '<b class="priceLarge">(.+?)</b>', "/Users/neo/foobar.txt")
+3)<br>
+Use the functions of the module<br>
+<code>import parse</code><br>
+<code>print parse.fromFile("./doc.txt", yourRegex)</code><br>
+<code>print parse.fromUrl("amazon.com/dp/foobar", yourOtherRegex)</code>
