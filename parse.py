@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 #
 # Parser for Websites by using Regex
-# written 12.JUL 2014 @neo_hac0x
+# History:
+# changed into a module - 09.Feb 2015 @neo_hac0x
+# written - 12.Jul 2014 @neo_hac0x
 
 import urllib
 import sys
