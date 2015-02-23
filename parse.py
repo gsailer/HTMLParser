@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 #
-# Parser for Websites by using Regex
+# Regexparser module for any Filetype
 # History:
+# minor changes for optimization - 23.Feb 2015 @neo_hac0x
 # changed into a module - 09.Feb 2015 @neo_hac0x
 # written - 12.Jul 2014 @neo_hac0x
 
@@ -16,17 +17,22 @@ def log(file, data):
 	with open(file, "a+") as f:
 		f.write(data + "\n")
 
+# function to parse any Data with a regex
 def csRegex(regex, filename):
 	pattern = re.compile(regex)
 	data = re.findall(pattern, filename)
 	return data
 
-# function to parse any Data with a regex
 def help ():
 	return "Usage: parse.fromUrl(url, regex), parse.fromFile(filename, regex)"
 
 def fromUrl(url, regex):
-	url = "http://" + url
+    
+    if not "http" in url:
+        url = "http://" + url
+    else:
+        pass
+        
 	dbg(url)
 	dbg(regex)
 	
@@ -36,6 +42,7 @@ def fromUrl(url, regex):
 		htmltext = htmlfile.read()
 	except IOError:
 		return "ERROR: Change Url format"
+		
 	
 	data = csRegex(regex, htmltext)
 	
@@ -50,3 +57,4 @@ def fromFile(filename, regex):
 			return csRegex(regex, f)
 	except:
 		return "ERROR: Some shit happend"
+
