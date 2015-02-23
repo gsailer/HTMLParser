@@ -40,7 +40,7 @@ def fromUrl(url, regex):
 	try:
 		htmlfile = urllib.urlopen(url)
 		htmltext = htmlfile.read()
-	except Error as e:
+	except Exception as e:
 		return e
 		
 	
