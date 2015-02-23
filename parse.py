@@ -23,10 +23,9 @@ def csRegex(regex, filename):
 	return data
 
 def help ():
-	return "Usage: parse.fromUrl(url, regex), parse.fromFile(filename, regex)"
+	print "Usage: parse.fromUrl(url, regex), parse.fromFile(filename, regex)"
 
 def fromUrl(url, regex):
-    
     if not "http" in url:
         url = "http://" + url
     else:
@@ -41,7 +40,6 @@ def fromUrl(url, regex):
 		htmltext = htmlfile.read()
 	except Exception as e:
 		return e
-		
 	
 	data = csRegex(regex, htmltext)
 	
