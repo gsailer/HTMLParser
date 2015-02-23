@@ -7,7 +7,6 @@
 # written - 12.Jul 2014 @neo_hac0x
 
 import urllib
-import sys
 import re
 
 def dbg(var):
