@@ -35,8 +35,7 @@ def fromUrl(url, regex):
 		htmlfile = urllib.urlopen(url)
 		htmltext = htmlfile.read()
 	except IOError:
-		print "ERROR: Connection Failure"
-		sys.exit(1)
+		return "ERROR: Change Url format"
 	
 	data = csRegex(regex, htmltext)
 	
@@ -50,5 +49,4 @@ def fromFile(filename, regex):
 		with open(filename) as f:
 			return csRegex(regex, f)
 	except:
-		print "ERROR: Some shit happend"
-		sys.exit(1)
+		return "ERROR: Some shit happend"
