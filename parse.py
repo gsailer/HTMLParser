@@ -2,12 +2,12 @@
 #
 # Regexparser module for any Filetype
 # History:
+# shortend import statements - 16.Mar 2015 @neo_hac0x
 # minor changes for optimization - 23.Feb 2015 @neo_hac0x
 # changed into a module - 09.Feb 2015 @neo_hac0x
 # written - 12.Jul 2014 @neo_hac0x
 
-import urllib
-import re
+import urllib, re
 
 def dbg(var):
 	return "DEBUG: " + var 
